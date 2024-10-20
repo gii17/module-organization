@@ -1,17 +1,17 @@
 <?php
 
-namespace Gii\ModuleService\Models;
+namespace Gii\ModuleOrganization\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Zahzah\LaravelHasProps\Concerns\HasProps;
 use Zahzah\LaravelSupport\Models\BaseModel;
 
-class Service extends BaseModel {
+class Organization extends BaseModel {
     use HasUlids,HasProps;
 
     protected $list            = ["id", "name","flag"];
     protected $show            = ["id", "name","flag"];
-    protected $__flags_Service = ['PATIENT_TYPE'];
+    protected $__flags_Service = ['AGENT','PAYER'];
 
     protected static function booted(): void{
         parent::booted();

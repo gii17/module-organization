@@ -1,10 +1,10 @@
 <?php
 
-namespace Gii\ModuleService\Schemas;
+namespace Gii\ModuleOrganization\Schemas;
 
 use Zahzah\LaravelFeature\Supports\BaseLaravelFeature;
 
-class Service extends BaseLaravelFeature{
+class Organization extends BaseLaravelFeature{
     protected array $__guard   = ['id']; 
     protected array $__add     = ['name','flag'];
     protected string $__entity = 'Service'; 

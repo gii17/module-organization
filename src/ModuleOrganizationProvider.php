@@ -1,11 +1,11 @@
 <?php
 
-namespace Gii\ModuleService;
+namespace Gii\ModuleOrganization;
 
-use Gii\ModuleService\Services\Service;
+use Gii\ModuleOrganization\Models\Organization;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class ModuleServiceProvider extends BaseServiceProvider
+class ModuleOrganizationProvider extends BaseServiceProvider
 {
     /**
      * Register services.
@@ -14,8 +14,8 @@ class ModuleServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('service', function ($app) {
-            return new Service();
+        $this->app->singleton('organization', function ($app) {
+            return new Organization();
         });
     }
 
@@ -27,7 +27,7 @@ class ModuleServiceProvider extends BaseServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../assets/config/module-service.php' => config_path('module-service.php'),
+            __DIR__.'/../assets/config/module-organization.php' => config_path('module-organization.php'),
         ], 'config');
     }
 }

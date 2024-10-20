@@ -1,10 +1,10 @@
 <?php
 
-namespace Gii\ModuleService\Enums;
+namespace Gii\ModuleOrganization\Enums;
 
-namespace Gii\ModuleService\Enums;
+namespace Gii\ModuleOrganization\Enums;
 
 enum EnumServiceFlag: int {
-    case PATIENT_TYPE  = 1;
-    case MEDIC_SERVICE = 2;
+    case AGENT  = 1;
+    case PAYER  = 2;
 }

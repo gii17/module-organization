@@ -1,5 +1,5 @@
 {
-    "name": "gii/module-service",
+    "name": "gii/module-organization",
     "description": "module for service in klinik or puskesmas",
     "type": "library",
     "require": {
@@ -11,13 +11,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Gii\\ModuleService\\": "src/"
+            "Gii\\ModuleOrganization\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Gii\\ModuleService\\ModuleServiceProvider"
+                "Gii\\ModuleOrganization\\ModuleOrganizationProvider"
             ]
         }
     },
