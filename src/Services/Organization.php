@@ -16,7 +16,7 @@ class Organization extends PackageManagement {
     }
 
     public function getDataByFlag(array $flags) : Collection {
-        return $this->OrganizationModel()->setIdentityFlags($flags);
+        return $this->OrganizationModel()->setIdentityFlags($flags)->get();
     }
 
 
