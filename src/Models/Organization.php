@@ -9,19 +9,19 @@ use Zahzah\LaravelSupport\Models\BaseModel;
 class Organization extends BaseModel {
     use HasUlids,HasProps;
 
-    protected $list            = ["id", "name","flag"];
-    protected $show            = ["id", "name","flag"];
-    protected $__flags_Service = ['AGENT','PAYER'];
+    protected $list                = ["name","flag"];
+    protected $show                = ["name","flag"];
+    protected $__flag_organization = ['AGENT','PAYER'];
 
     protected static function booted(): void{
         parent::booted();
         static::addGlobalScope('flagIn',function($query){
-            $query->flagIn(self::$__flags_Service);
+            $query->flagIn(self::$__flag_organization);
         });
     }
 
-    public static function setIdentityFlags(array $flags){
-        self::$__flags_Service = $flags;
+    public function scopesetIdentityFlags($builder,array $flags){
+        self::$__flag_organization = $flags;
     }
 
     //EIGER SECTION

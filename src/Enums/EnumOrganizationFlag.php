@@ -4,7 +4,7 @@ namespace Gii\ModuleOrganization\Enums;
 
 namespace Gii\ModuleOrganization\Enums;
 
-enum EnumServiceFlag: int {
+enum EnumOrganizationFlag: int {
     case AGENT  = 1;
     case PAYER  = 2;
 }

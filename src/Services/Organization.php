@@ -3,6 +3,7 @@
 namespace Gii\ModuleOrganization\Services;
 
 use Gii\ModuleOrganization\Models\Organization as ModelsOrganization;
+use Illuminate\Database\Eloquent\Collection;
 use Zahzah\LaravelSupport\Supports\PackageManagement;
 
 class Organization extends PackageManagement {
@@ -14,7 +15,7 @@ class Organization extends PackageManagement {
         return $this->OrganizationModel()->setIdentityFlags($flags)->refind($id);
     }
 
-    public function getDataByFlag(array $flags) : ?ModelsOrganization {
+    public function getDataByFlag(array $flags) : Collection {
         return $this->OrganizationModel()->setIdentityFlags($flags);
     }
 

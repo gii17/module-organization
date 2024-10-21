@@ -21,7 +21,8 @@ class ModuleOrganizationServiceProvider extends BaseServiceProvider
                 '*',
                 'Services'  => function(){
                     $this->binds([
-                        Contracts\ModuleOrganization::class => new Organization()
+                        Contracts\ModuleOrganization::class => new Organization(),
+                        'organization'                      => new ServiceOrganization(),
                     ]);
                 },
              ]);
