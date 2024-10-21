@@ -5,7 +5,7 @@ namespace Gii\ModuleOrganization;
 use Gii\ModuleOrganization\Models\Organization;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class ModuleOrganizationProvider extends BaseServiceProvider
+class ModuleOrganizationServiceProvider extends BaseServiceProvider
 {
     /**
      * Register services.

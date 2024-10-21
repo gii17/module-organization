@@ -10,7 +10,7 @@ return new class extends Migration
     private $__table;
 
     public function __construct(){
-        $this->__table = app(config('database.models.Service', Organization::class));
+        $this->__table = app(config('database.models.Organization', Organization::class));
     }
 
     /**
