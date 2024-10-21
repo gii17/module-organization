@@ -3,6 +3,7 @@
 namespace Gii\ModuleOrganization;
 
 use Gii\ModuleOrganization\Models\Organization;
+use Gii\ModuleOrganization\Services\Organization as ServiceOrganization;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ModuleOrganizationServiceProvider extends EnvironmentServiceProvider
@@ -14,9 +15,10 @@ class ModuleOrganizationServiceProvider extends EnvironmentServiceProvider
      */
     public function register()
     {
-        $this->registerNamespace()->registerModel()->registerProvider(); 
-        $this->app->singleton('organization', function ($app) {
-            return new Organization();
-        });
+        $this->registerMainClass(ServiceOrganization::class)
+             ->registerCommandService(Providers\CommandServiceProvider::class)
+             ->registers([
+                '*',
+             ]);
     }
 }
