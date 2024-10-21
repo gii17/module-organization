@@ -31,10 +31,11 @@ class InstallMakeCommand extends EnvironmentCommand{
         ]);
         $this->info('✔️  Created migrations');
 
-        $migrations = $this->scanMigration();
-        $migrations = $this->arrayValues($this->mapArray(function($migration){
-            return 'database\\'.explode('\\database\\',$migration)[1];
-        }, $migrations));
+        $migrations = $this->setMigrationBasePath(database_path('migrations'))->canMigrate();
+        $this->callSilent('migrate', [
+            '--path' => $migrations
+        ]);
+        
         $this->callSilent('migrate', [
             '--path' => $migrations
         ]);
