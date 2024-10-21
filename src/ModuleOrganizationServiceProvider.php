@@ -5,7 +5,7 @@ namespace Gii\ModuleOrganization;
 use Gii\ModuleOrganization\Models\Organization;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class ModuleOrganizationServiceProvider extends BaseServiceProvider
+class ModuleOrganizationServiceProvider extends EnvironmentServiceProvider
 {
     /**
      * Register services.
@@ -14,20 +14,9 @@ class ModuleOrganizationServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
+        $this->registerNamespace()->registerModel()->registerProvider(); 
         $this->app->singleton('organization', function ($app) {
             return new Organization();
         });
-    }
-
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->publishes([
-            __DIR__.'/../assets/config/module-organization.php' => config_path('module-organization.php'),
-        ], 'config');
     }
 }
