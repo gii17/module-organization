@@ -17,6 +17,18 @@ class ViewOrganization extends ApiResource
         'id'           => $this->id,
         'name'         => $this->name,
         "flag"         => $this->flag,
+        "parent"       => $this->relationValidation("parent", function() {
+            return new static($this->parent);
+        }),
+        "child"        => $this->relationValidation("child",function(){
+            return new static($this->child);
+        }),
+        "childs"       => $this->relationValidation("childs",function(){
+            $childs = $this->childs;
+            return $childs->transform(function($child){
+                return new static($child);
+            });
+        }),
         'created_at'   => $this->created_at,
         'updated_at'   => $this->updated_at
       ];

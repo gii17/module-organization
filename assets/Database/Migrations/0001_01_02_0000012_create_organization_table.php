@@ -25,6 +25,10 @@ return new class extends Migration
             Schema::create($table_name, function (Blueprint $table) {
                 $table->id();
                 $table->string("name");
+                $table->foreignIdFor($this->__table::class,'parent_id')
+                ->nullable()
+                ->index()->constrained()
+                ->cascadeOnUpdate()->restrictOnDelete();
                 $table->string("flag",60);
                 $table->json('props')->nullable();
                 $table->timestamps();

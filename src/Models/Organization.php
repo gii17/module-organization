@@ -10,8 +10,8 @@ use Zahzah\LaravelSupport\Models\BaseModel;
 class Organization extends BaseModel {
     use HasProps,HasSoftDeletes;
 
-    protected $list                 = ["id","name","flag"];
-    protected $show                 = ["id","name","flag"];
+    protected $list                 = ["id","name","flag", "parent_id"];
+    protected $show                 = ["id","name","flag", "parent_id"];
     public static $__flags_service  = [];
 
     protected static function booted(): void{
@@ -28,5 +28,8 @@ class Organization extends BaseModel {
     //EIGER SECTION
 
     //END EIGER SECTION
+    public function parent(){return $this->belongsTo(self::class,"parent_id","id");}
+    public function childs(){return $this->hasMany(self::class,"parent_id","id");}
+    public function child(){return $this->hasOne(self::class,"parent_id","id");}
 }
 

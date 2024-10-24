@@ -8,7 +8,7 @@ use Zahzah\LaravelFeature\Supports\BaseLaravelFeature;
 
 class Organization extends BaseLaravelFeature{
     protected array $__guard   = ['id']; 
-    protected array $__add     = ['name','flag'];
+    protected array $__add     = ['name','flag','parent_id'];
     protected string $__entity = 'Organization'; 
 
     public function addOrChange(? array $attributes=[]): self{    
