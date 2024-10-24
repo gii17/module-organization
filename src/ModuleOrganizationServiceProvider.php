@@ -2,8 +2,11 @@
 
 namespace Gii\ModuleOrganization;
 
-use Gii\ModuleOrganization\Models\Organization;
-use Gii\ModuleOrganization\Services\Organization as ServiceOrganization;
+use Gii\ModuleOrganization\{
+    Schemas\Organization as OrganizationSchema,
+    Models\Organization  as OrganizationModel,
+    Contracts,
+};
 use Zahzah\LaravelSupport\Providers\BaseServiceProvider;
 
 class ModuleOrganizationServiceProvider extends BaseServiceProvider
@@ -15,14 +18,14 @@ class ModuleOrganizationServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $this->registerMainClass(ServiceOrganization::class)
+        $this->registerMainClass(ModuleOrganization::class)
              ->registerCommandService(Providers\CommandServiceProvider::class)
              ->registers([
                 '*',
                 'Services'  => function(){
                     $this->binds([
-                        Contracts\ModuleOrganization::class => new Organization(),
-                        'organization'                      => new ServiceOrganization(),
+                        Contracts\ModuleOrganization::class  => new OrganizationModel(),
+                        Contracts\Organization::class        => new OrganizationSchema(),
                     ]);
                 },
              ]);

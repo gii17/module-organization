@@ -25,7 +25,7 @@ return new class extends Migration
             Schema::create($table_name, function (Blueprint $table) {
                 $table->id();
                 $table->string("name");
-                $table->unsignedTinyInteger("flag")->default();
+                $table->string("flag",60);
                 $table->json('props')->nullable();
                 $table->timestamps();
                 $table->softDeletes();
